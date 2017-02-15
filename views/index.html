@@ -1,0 +1,41 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: http://mozilla.github.io/nunjucks/ -->
+<!-- jade: http://jade-lang.com/ -->
+<!-- haml: http://haml.info/tutorial.html -->
+<!-- hbs(handlebars): http://handlebarsjs.com/expressions.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter Passport Example</title>
+    <meta name="description" content="an example app implementing twitter oauth with passport">
+    <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Twitter Passport Example</h1>
+      <h2>an example app showing how to use passport and the twitter api for authentication</h2>
+    </header>
+
+    <main>
+      <a class="container" href="/auth/twitter">Log In with Twitter</a>
+    </main>
+
+    <!-- this gWidget id element will hold the remix/view source buttons -->
+    <footer id="gWidget"></footer>
+
+    <!-- embed this widget script to standardize header, footer, styling -->
+    <script src="https://widget.gomix.me/widget.min.js"></script>
+    
+    <!-- Your web-app is https, so your scripts need to be too. add them below! -->
+    <script src="/client.js"></script>
+
+  </body>
+</html>
