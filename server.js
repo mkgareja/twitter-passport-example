@@ -8,9 +8,9 @@ var TwitterStrategy = require('passport-twitter').Strategy;
 
 // the process.env values are set in .env
 passport.use(new TwitterStrategy({
-  consumerKey: process.env.TWITTER_CONSUMER_KEY,
-  consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  callbackURL: process.env.TWITTER_CALLBACK_URL,
+  consumerKey: '4x4FjuiVvqX9eM5KaVA1HCubP',
+  consumerSecret: 'QnQe3JVSLqWjSiiZXLRH8pbBhGzIqI8SdkJKcw8dwJyNiyBdtK',
+  callbackURL: 'http://c3159baa.ngrok.io/auth/twitter/return',
 },
 function(token, tokenSecret, profile, cb) {
   return cb(null, profile);
@@ -53,7 +53,7 @@ app.get('/logoff',
 
 app.get('/auth/twitter', passport.authenticate('twitter'));
 
-app.get('/login/twitter/return', 
+app.get('/auth/twitter/return', 
   passport.authenticate('twitter', 
     { successRedirect: '/setcookie', failureRedirect: '/' }
   )
@@ -63,6 +63,7 @@ app.get('/login/twitter/return',
 // to the success view
 app.get('/setcookie',
   function(req, res) {
+    console.log(req.user)
     res.cookie('twitter-passport-example', new Date());
     res.redirect('/success');
   }
@@ -80,6 +81,6 @@ app.get('/success',
 );
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
+var listener = app.listen(3001, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
